@@ -1,0 +1,22 @@
+import pygame
+
+
+A_ASCII = 65  # ascii A letter constant
+
+
+def render_text(text, family, size, color=(0, 0, 0), aa=False):
+    font = pygame.font.SysFont(family, size)
+    return font.render(text, aa, color)
+
+
+def near(p, center, radius):
+    d2 = (p[0] - center[0])**2 + (p[1] - center[1])**2
+    return d2 <= radius**2
+
+
+def is_matrix_square(matrix):
+    n = len(matrix)
+    for i in range(n):
+        if len(matrix[i]) != n:
+            return False
+    return True
