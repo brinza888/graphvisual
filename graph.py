@@ -1,7 +1,7 @@
 import math
 from random import randint, random
 
-from tools import A_ASCII, is_matrix_square
+from tools import name_letter, is_matrix_square
 from vertex import Vertex
 from edge import Edge
 
@@ -30,7 +30,7 @@ class Graph:
         vertices = []
         angle = 2 * math.pi / n
         for i in range(n):
-            name = chr(A_ASCII + i % 26) * (i // 26 + 1)
+            name = name_letter(i)
             vx, vy = radius * math.cos(angle * i) + cx, radius * math.sin(angle * i) + cy
             vertices.append(Vertex(name, int(vx), int(vy), vsize, width, color))
         return vertices

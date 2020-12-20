@@ -1,7 +1,5 @@
 import pygame
-
-
-A_ASCII = 65  # ascii A letter constant
+import string
 
 
 def render_text(text, family, size, color=(0, 0, 0), aa=False):
@@ -20,3 +18,13 @@ def is_matrix_square(matrix):
         if len(matrix[i]) != n:
             return False
     return True
+
+
+def name_letter(n, alp=string.ascii_uppercase):
+    n += 1
+    alp_len = len(alp)
+    name = ""
+    while n > 0:
+        name = alp[n % alp_len - 1] + name
+        n //= (alp_len + 1)
+    return name
