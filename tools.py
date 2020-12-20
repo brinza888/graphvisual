@@ -21,10 +21,11 @@ def is_matrix_square(matrix):
 
 
 def name_letter(n, alp=string.ascii_uppercase):
-    n += 1
     alp_len = len(alp)
     name = ""
-    while n > 0:
-        name = alp[n % alp_len - 1] + name
-        n //= (alp_len + 1)
+    while True:
+        name = alp[n % alp_len] + name
+        n //= alp_len
+        if n == 0:
+            break
     return name
