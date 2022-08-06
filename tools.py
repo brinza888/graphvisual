@@ -1,5 +1,7 @@
-import pygame
+from enum import IntEnum, auto, unique
 import string
+
+import pygame
 
 
 def render_text(text, family, size, color=(0, 0, 0), aa=False):
@@ -29,3 +31,8 @@ def name_letter(n, alp=string.ascii_uppercase):
         if n == 0:
             break
     return name
+
+
+UserEvent = IntEnum("UserEvent", [
+    "CONSOLE_COMMAND"
+], start=pygame.USEREVENT + 1)
